@@ -1,0 +1,67 @@
+@prefix : <#> .
+
+:Incident a owl:Class;
+ rdfs:subClassOf :Event .
+
+:WeatherConditions a owl:Class;
+ rdfs:subClassOf :EnvironmentalObservation .
+
+:HumanObservations a owl:Class;
+ rdfs:subClassOf :Observation .
+
+:EarthObservations a owl:Class;
+ rdfs:subClassOf :Observation .
+
+:Missions a owl:Class;
+ rdfs:subClassOf :EmergencyManagement .
+
+:Services a owl:Class;
+ rdfs:subClassOf :EmergencyManagement .
+
+:severeImpacts a owl:Class;
+ rdfs:subClassOf :Impact .
+
+:affectedArea a owl:DatatypeProperty;
+ rdfs:domain :severeImpacts .
+
+:affectedPopulation a owl:DatatypeProperty;
+ rdfs:domain :severeImpacts .
+
+:fireSize a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:fireIntensity a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:temperature a owl:DatatypeProperty;
+ rdfs:domain :WeatherConditions .
+
+:windSpeed a owl:DatatypeProperty;
+ rdfs:domain :WeatherConditions .
+
+:location a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:services a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:dataSourceType a owl:DatatypeProperty;
+ rdfs:domain :EarthObservations .
+
+:classificationType a owl:DatatypeProperty;
+ rdfs:domain :EarthObservations .
+
+:smokeClass a owl:DatatypeProperty;
+ rdfs:domain :EarthObservations .
+
+:vulnerableObjects a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:statusOfWildfireForestryWorks a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:populationDensity a owl:DatatypeProperty;
+ rdfs:domain :Incident .
+
+:locationOfInvolvedPeople a owl:DatatypeProperty;
+ rdfs:domain :Incident .

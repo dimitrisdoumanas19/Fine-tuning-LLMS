@@ -1,0 +1,165 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sar: <http://example.org/sar#> .
+
+# Classes
+sar:Incident rdf:type owl:Class ;
+    rdfs:subClassOf [
+        rdf:type owl:Class ;
+        owl:unionOf ( sar:PropertyDamage sar:Injury sar:EnvironmentalImpact )
+    ] .
+
+sar:PropertyDamage rdf:type owl:Class ;
+    rdfs:subClassOf sar:Incident .
+
+sar:Injury rdf:type owl:Class ;
+    rdfs:subClassOf sar:Incident .
+
+sar:EnvironmentalImpact rdf:type owl:Class ;
+    rdfs:subClassOf sar:Incident .
+
+sar:WeatherCondition rdf:type owl:Class ;
+    rdfs:subClassOf [
+        rdf:type owl:Class ;
+        owl:unionOf ( sar:Temperature sar:WindSpeed sar:Humidity sar:WeatherForecast )
+    ] .
+
+sar:Temperature rdf:type owl:Class ;
+    rdfs:subClassOf sar:WeatherCondition .
+
+sar:WindSpeed rdf:type owl:Class ;
+    rdfs:subClassOf sar:WeatherCondition .
+
+sar:Humidity rdf:type owl:Class ;
+    rdfs:subClassOf sar:WeatherCondition .
+
+sar:WeatherForecast rdf:type owl:Class ;
+    rdfs:subClassOf sar:WeatherCondition .
+
+sar:ObservationData rdf:type owl:Class .
+
+sar:Mission rdf:type owl:Class .
+
+# Object Properties
+sar:hasLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:Location .
+
+sar:hasPriority rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:Priority .
+
+sar:hasUrgency rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:Urgency .
+
+sar:hasCurrentMeasurement rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:WeatherCondition ;
+    rdfs:range xsd:float .
+
+sar:hasForecast rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:WeatherCondition ;
+    rdfs:range sar:WeatherForecast .
+
+sar:hasSource rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range sar:Source .
+
+sar:hasCreationDate rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range xsd:dateTime .
+
+sar:hasObservationLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range sar:Location .
+
+sar:hasClassificationType rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range sar:ClassificationType .
+
+sar:hasVulnerableObjects rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range sar:VulnerableObject .
+
+sar:hasStatus rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range sar:Status .
+
+sar:offersService rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range sar:Service .
+
+sar:followsMission rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range sar:Mission .
+
+sar:hasMissionLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range sar:Location .
+
+sar:hasUrgentMissionLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range sar:Location .
+
+sar:hasPopulationDensity rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range xsd:integer .
+
+sar:hasInvolvedPeopleLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range sar:Location .
+
+# Data Properties
+sar:hasTemperatureValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Temperature ;
+    rdfs:range xsd:float .
+
+sar:hasWindSpeedValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:WindSpeed ;
+    rdfs:range xsd:float .
+
+sar:hasHumidityValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Humidity ;
+    rdfs:range xsd:float .
+
+sar:hasForecastValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:WeatherForecast ;
+    rdfs:range xsd:string .
+
+sar:hasSourceValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Source ;
+    rdfs:range xsd:string .
+
+sar:hasClassificationTypeValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:ClassificationType ;
+    rdfs:range xsd:string .
+
+sar:hasVulnerableObjectValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:VulnerableObject ;
+    rdfs:range xsd:string .
+
+sar:hasStatusValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Status ;
+    rdfs:range xsd:string .
+
+sar:hasServiceValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Service ;
+    rdfs:range xsd:string .
+
+sar:hasMissionValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range xsd:string .
+
+sar:hasLocationValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Location ;
+    rdfs:range xsd:string .
+
+sar:hasPriorityValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Priority ;
+    rdfs:range xsd:string .
+
+sar:hasUrgencyValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Urgency ;
+    rdfs:range xsd:string .

@@ -1,0 +1,199 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dcpterms: <http://purl.org/dc/dcmitype/Text> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iana: <http://www.iana.org/> .
+@prefix ont: <http://example.org/sar-wildfire/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/sar-wildfire>
+a owl:Ontology, dcterms:Resource ;
+rdf:type foaf:BodyOfKnowledge ;
+rdfs:label "Search and Rescue Wildfire Ontology" ;
+dcterms:description "The Search and Rescue Wildfire Ontology captures data related to wildfire incidents and provides decision support services to the crisis management center." .
+
+<http://example.org/sar-wildfire#Disaster>
+a owl:Class ;
+rdfs:label "Disaster" ;
+rdfs:subClassOf ont:Event ;
+rdfs:comment "A Disaster represents the wildfire incident." .
+
+<http://example.org/sar-wildfire#WildfireDisaster>
+a owl:Class ;
+rdfs:label "WildfireDisaster" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:Wildfire .
+
+<http://example.org/sar-wildfire#Incident>
+a owl:Class ;
+rdfs:label "Incident" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:Incident .
+
+<http://example.org/sar-wildfire#Impact>
+a owl:Class ;
+rdfs:label "Impact" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:Impact .
+
+<http://example.org/sar-wildfire#WeatherCondition>
+a owl:Class ;
+rdfs:label "WeatherCondition" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:WeatherCondition .
+
+<http://example.org/sar-wildfire#HumanObservation>
+a owl:Class ;
+rdfs:label "HumanObservation" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:HumanObservation .
+
+<http://example.org/sar-wildfire#EarthObservation>
+a owl:Class ;
+rdfs:label "EarthObservation" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:EarthObservation .
+
+<http://example.org/sar-wildfire#Mission>
+a owl:Class ;
+rdfs:label "Mission" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:Mission .
+
+<http://example.org/sar-wildfire#Service>
+a owl:Class ;
+rdfs:label "Service" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:Service .
+
+<http://example.org/sar-wildfire#Support>
+a owl:Class ;
+rdfs:label "Support" ;
+rdf:type owl:Restriction ;
+owl:onProperty ont:type ;
+owl:hasValue ont:Support .
+
+<http://example.org/sar-wildfire#location>
+a owl:DatatypeProperty ;
+rdfs:label "location" ;
+rdfs:domain ont:Disaster ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#priority>
+a owl:DatatypeProperty ;
+rdfs:label "priority" ;
+rdfs:domain ont:Incident ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#date>
+a owl:DatatypeProperty ;
+rdfs:label "date" ;
+rdfs:domain ont:Incident ;
+rdfs:range xsd:date .
+
+<http://example.org/sar-wildfire#status>
+a owl:DatatypeProperty ;
+rdfs:label "status" ;
+rdfs:domain ont:Incident ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#type>
+a owl:ObjectProperty ;
+rdfs:label "type" ;
+rdfs:domain ont:WeatherCondition ;
+rdfs:range ont:WeatherCondition .
+
+<http://example.org/sar-wildfire#data>
+a owl:DatatypeProperty ;
+rdfs:label "data" ;
+rdfs:domain ont:HumanObservation ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#dateCreated>
+a owl:DatatypeProperty ;
+rdfs:label "dateCreated" ;
+rdfs:domain ont:HumanObservation ;
+rdfs:range xsd:date .
+
+<http://example.org/sar-wildfire#locationObserved>
+a owl:DatatypeProperty ;
+rdfs:label "locationObserved" ;
+rdfs:domain ont:HumanObservation ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#typeObserved>
+a owl:DatatypeProperty ;
+rdfs:label "typeObserved" ;
+rdfs:domain ont:HumanObservation ;
+rdfs:range ont:WeatherCondition .
+
+<http://example.org/sar-wildfire#source>
+a owl:DatatypeProperty ;
+rdfs:label "source" ;
+rdfs:domain ont:EarthObservation ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#dateReceived>
+a owl:DatatypeProperty ;
+rdfs:label "dateReceived" ;
+rdfs:domain ont:EarthObservation ;
+rdfs:range xsd:date .
+
+<http://example.org/sar-wildfire#locationReceived>
+a owl:DatatypeProperty ;
+rdfs:label "locationReceived" ;
+rdfs:domain ont:EarthObservation ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#typeReceived>
+a owl:DatatypeProperty ;
+rdfs:label "typeReceived" ;
+rdfs:domain ont:EarthObservation ;
+rdfs:range ont:WeatherCondition .
+
+<http://example.org/sar-wildfire#supportedBy>
+a owl:ObjectProperty ;
+rdfs:label "supportedBy" ;
+rdfs:domain ont:Service ;
+rdfs:range ont:Support .
+
+<http://example.org/sar-wildfire#locationSupportedBy>
+a owl:DatatypeProperty ;
+rdfs:label "locationSupportedBy" ;
+rdfs:domain ont:Service ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#startDate>
+a owl:DatatypeProperty ;
+rdfs:label "startDate" ;
+rdfs:domain ont:Mission ;
+rdfs:range xsd:date .
+
+<http://example.org/sar-wildfire#endDate>
+a owl:DatatypeProperty ;
+rdfs:label "endDate" ;
+rdfs:domain ont:Mission ;
+rdfs:range xsd:date .
+
+<http://example.org/sar-wildfire#locationMission>
+a owl:DatatypeProperty ;
+rdfs:label "locationMission" ;
+rdfs:domain ont:Mission ;
+rdfs:range xsd:string .
+
+<http://example.org/sar-wildfire#urgencyLevel>
+a owl:DatatypeProperty ;
+rdfs:label "urgencyLevel" ;
+rdfs:domain ont:Mission ;
+rdfs:range xsd:string .

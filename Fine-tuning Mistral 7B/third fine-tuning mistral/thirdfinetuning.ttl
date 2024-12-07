@@ -1,0 +1,58 @@
+@prefix swp: http://www.semanticwebprimer.org/ontology/apartments.ttl#
+@prefix sfo: http://example.org/sfo#
+
+@namespace sfo.
+
+Ontology for Wildfire Management
+
+Apartment: a subclass of  .
+
+Incident: a class .
+
+Impact: a subclass of  .
+
+WeatherVariable: a class .
+
+WeatherMeasurement: a subclass of  .
+
+WeatherForecast: a subclass of  .
+
+SensorData: a subclass of  .
+
+SocialMediaData: a subclass of  .
+
+VulnerableObject: a class .
+
+FirebreakStatus: a class .
+
+SupportService: a class .
+
+MissionLocation: a class .
+
+hasLocation: a property linking  to a  .
+
+hasPriority: a property linking  to a  .
+
+hasUrgency: a property linking  to a  .
+
+isAffectedBy: a property linking  to a  .
+
+hasWeatherVariable: a property linking  to a  .
+
+hasMeasurement: a property linking  to a  .
+
+hasForecast: a property linking  to a  .
+
+isDetectedBy: a property linking  to a  .
+
+isSourcedBy: a property linking  to a  .
+
+isVulnerableTo: a property linking  to a  .
+
+hasFirebreakStatus: a property linking  to a  .
+
+offersSupport: a property linking  to a  .
+
+followsMission: a property linking  to a  .
+
+isActiveAt: a property linking  to a  .
