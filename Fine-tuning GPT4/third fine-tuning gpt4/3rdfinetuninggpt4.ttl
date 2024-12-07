@@ -1,0 +1,22 @@
+:Incident rdf:type owl:Class.
+:Impact rdf:type owl:Class.
+:WeatherCondition rdf:type owl:Class.
+:Temperature rdf:type owl:Class; rdfs:subClassOf :WeatherCondition.
+:WindSpeed rdf:type owl:Class; rdfs:subClassOf :WeatherCondition.
+:Humidity rdf:type owl:Class; rdfs:subClassOf :WeatherCondition.
+:DataSource rdf:type owl:Class.
+:Observation rdf:type owl:Class.
+:SatelliteData rdf:type owl:Class; rdfs:subClassOf :DataSource.
+:SocialMediaData rdf:type owl:Class; rdfs:subClassOf :DataSource.
+:SensorData rdf:type owl:Class; rdfs:subClassOf :DataSource.
+:Mission rdf:type owl:Class.
+:Service rdf:type owl:Class.
+:FirefightingService rdf:type owl:Class; rdfs:subClassOf :Service.
+:SupportService rdf:type owl:Class; rdfs:subClassOf :Service.
+:hasLocation rdf:type owl:ObjectProperty; rdfs:domain :Incident; rdfs:range :Location.
+:hasImpact rdf:type owl:ObjectProperty; rdfs:domain :Incident; rdfs:range :Impact.
+:servesLocation rdf:type owl:ObjectProperty; rdfs:domain :Service; rdfs:range :Location.
+:hasPriority rdf:type owl:DatatypeProperty; rdfs:domain :Incident; rdfs:range xsd:integer.
+:isUrgent rdf:type owl:DatatypeProperty; rdfs:domain :Mission; rdfs:range xsd:boolean.
+:currentMeasurement rdf:type owl:DatatypeProperty; rdfs:domain :WeatherCondition; rdfs:range xsd:float.
+:forecast rdf:type owl:DatatypeProperty; rdfs:domain :WeatherCondition; rdfs:range xsd:string.

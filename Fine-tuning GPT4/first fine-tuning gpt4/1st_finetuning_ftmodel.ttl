@@ -1,0 +1,74 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix sar: <http://example.org/sar#>.
+
+sar:Incident rdf:type owl:Class.
+sar:WeatherCondition rdf:type owl:Class.
+sar:SensorData rdf:type owl:Class.
+sar:Mission rdf:type owl:Class.
+sar:Service rdf:type owl:Class.
+
+sar:incidentLocation rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Incident;
+  rdfs:range rdfs:Literal.
+
+sar:priorityLevel rdf:type owl:DatatypeProperty;
+  rdfs:domain sar:Incident;
+  rdfs:range xsd:integer.
+
+sar:impactType rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Incident;
+  rdfs:range rdfs:Literal.
+
+sar:temperature rdf:type owl:DatatypeProperty;
+  rdfs:domain sar:WeatherCondition;
+  rdfs:range xsd:float.
+
+sar:windSpeed rdf:type owl:DatatypeProperty;
+  rdfs:domain sar:WeatherCondition;
+  rdfs:range xsd:float.
+
+sar:humidity rdf:type owl:DatatypeProperty;
+  rdfs:domain sar:WeatherCondition;
+  rdfs:range xsd:float.
+
+sar:forecast rdf:type owl:ObjectProperty;
+  rdfs:domain sar:WeatherCondition;
+  rdfs:range rdfs:Literal.
+
+sar:dataType rdf:type owl:ObjectProperty;
+  rdfs:domain sar:SensorData;
+  rdfs:range rdfs:Literal.
+
+sar:creationDate rdf:type owl:DatatypeProperty;
+  rdfs:domain sar:SensorData;
+  rdfs:range xsd:dateTime.
+
+sar:dataLocation rdf:type owl:ObjectProperty;
+  rdfs:domain sar:SensorData;
+  rdfs:range rdfs:Literal.
+
+sar:missionLocation rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Mission;
+  rdfs:range rdfs:Literal.
+
+sar:objective rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Mission;
+  rdfs:range rdfs:Literal.
+
+sar:urgency rdf:type owl:DatatypeProperty;
+  rdfs:domain sar:Mission;
+  rdfs:range xsd:integer.
+
+sar:providesSupportFor rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Service;
+  rdfs:range sar:Mission.
+
+sar:missionSupport rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Mission;
+  rdfs:range sar:Service.
+
+sar:locationBasedOperations rdf:type owl:ObjectProperty;
+  rdfs:domain sar:Service;
+  rdfs:range sar:Mission.
