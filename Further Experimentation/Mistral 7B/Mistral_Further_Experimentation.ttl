@@ -1,0 +1,677 @@
+@prefix : <http://example.org/wildfire#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/wildfire#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/wildfire#Air
+:Air rdf:type owl:Class ;
+     rdfs:subClassOf :Observation ;
+     rdfs:label "AirQuality" .
+
+
+###  http://example.org/wildfire#Aircraft
+:Aircraft rdf:type owl:Class ;
+          rdfs:subClassOf :Vehicle ;
+          rdfs:label "Aircraft" .
+
+
+###  http://example.org/wildfire#Animal
+:Animal rdf:type owl:Class ;
+        rdfs:label "Animal" .
+
+
+###  http://example.org/wildfire#Car
+:Car rdf:type owl:Class ;
+     rdfs:subClassOf :Vehicle ;
+     rdfs:label "Car" .
+
+
+###  http://example.org/wildfire#Citizen
+:Citizen rdf:type owl:Class ;
+         rdfs:subClassOf :Stakeholder ;
+         rdfs:label "Citizen" .
+
+
+###  http://example.org/wildfire#CivilProtection
+:CivilProtection rdf:type owl:Class ;
+                 rdfs:subClassOf :Service ;
+                 rdfs:label "CivilProtection" .
+
+
+###  http://example.org/wildfire#Climate
+:Climate rdf:type owl:Class ;
+         rdfs:label "Climate" .
+
+
+###  http://example.org/wildfire#EvacuationMission
+:EvacuationMission rdf:type owl:Class ;
+                   rdfs:subClassOf :Mission ;
+                   rdfs:label "EvacuationMission" .
+
+
+###  http://example.org/wildfire#FireImpact
+:FireImpact rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#FireLocation
+:FireLocation rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#FireWeatherCondition
+:FireWeatherCondition rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#Firefighter
+:Firefighter rdf:type owl:Class ;
+             rdfs:subClassOf :Stakeholder ;
+             rdfs:label "Firefighter" .
+
+
+###  http://example.org/wildfire#ForestFire
+:ForestFire rdf:type owl:Class ;
+            rdfs:subClassOf :IncidentFire ;
+            rdfs:label "ForestFire" .
+
+
+###  http://example.org/wildfire#Geometry
+:Geometry rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#GroundSituation
+:GroundSituation rdf:type owl:Class ;
+                 rdfs:subClassOf :Observation ;
+                 rdfs:label "GroundSituation" .
+
+
+###  http://example.org/wildfire#VulnerableObject
+:VulnerableObject rdf:type owl:Class ;
+                        rdfs:subClassOf :Impact ;
+                        rdfs:label "VulnerableObject" .
+
+
+###  http://example.org/wildfire#Humidity
+:Humidity rdf:type owl:Class ;
+          rdfs:subClassOf :WeatherConditionParameter ;
+          rdfs:label "Humidity" .
+
+
+###  http://example.org/wildfire#Impact
+:Impact rdf:type owl:Class ;
+        rdfs:label "Impact" .
+
+
+###  http://example.org/wildfire#ImpactType
+:ImpactType rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#IncidentFire
+:IncidentFire rdf:type owl:Class ;
+              rdfs:label "Incident" .
+
+
+###  http://example.org/wildfire#IncidentImpact
+:IncidentImpact rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#IncidentLocation
+:IncidentLocation rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#IncidentType
+:IncidentType rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#Facility
+:Facility rdf:type owl:Class ;
+                rdfs:label "Facility" .
+
+
+###  http://example.org/wildfire#LandFire
+:LandFire rdf:type owl:Class ;
+          rdfs:subClassOf :IncidentFire ;
+          rdfs:label "LandFire" .
+
+
+###  http://example.org/wildfire#LivingBeing
+:LivingBeing rdf:type owl:Class ;
+             rdfs:subClassOf :Impact ;
+             rdfs:label "LivingBeing" .
+
+
+###  http://example.org/wildfire#Location
+:Location rdf:type owl:Class ;
+          rdfs:label "Location" .
+
+
+###  http://example.org/wildfire#LocationWeatherCondition
+:LocationWeatherCondition rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#LocationWeatherForecast
+:LocationWeatherForecast rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#MediaItem
+:MediaItem rdf:type owl:Class ;
+           rdfs:label "MediaItem" .
+
+
+###  http://example.org/wildfire#MediaLocation
+:MediaLocation rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#MedicalService
+:MedicalService rdf:type owl:Class ;
+                rdfs:subClassOf :Service ;
+                rdfs:label "MedicalService" .
+
+
+###  http://example.org/wildfire#MeteorologyClimate
+:MeteorologyClimate rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#MeteorologyWeatherCondition
+:MeteorologyWeatherCondition rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#Mission
+:Mission rdf:type owl:Class ;
+         rdfs:label "Mission" .
+
+
+###  http://example.org/wildfire#Observation
+:Observation rdf:type owl:Class ;
+             rdfs:label "Observation" .
+
+
+###  http://example.org/wildfire#PhysicalEnvironment
+:PhysicalEnvironment rdf:type owl:Class ;
+                     rdfs:subClassOf :Impact ;
+                     rdfs:label "PhysicalEnvironment" .
+
+
+###  http://example.org/wildfire#Point
+:Point rdf:type owl:Class ;
+       rdfs:subClassOf :Location ;
+       rdfs:label "Point" .
+
+
+###  http://example.org/wildfire#Public
+:Public rdf:type owl:Class ;
+        rdfs:subClassOf :Stakeholder ;
+        rdfs:label "Public" .
+
+
+###  http://example.org/wildfire#Recommendation
+:Recommendation rdf:type owl:Class ;
+                rdfs:subClassOf :MediaItem ;
+                rdfs:label "Recommendation" .
+
+
+###  http://example.org/wildfire#Report
+:Report rdf:type owl:Class ;
+        rdfs:subClassOf :MediaItem ;
+        rdfs:label "Report" .
+
+
+###  http://example.org/wildfire#Resource
+:Resource rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#Satellite
+:Satellite rdf:type owl:Class ;
+           rdfs:subClassOf :Sensor ;
+           rdfs:label "Satellite" .
+
+
+###  http://example.org/wildfire#Sensor
+:Sensor rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#Service
+:Service rdf:type owl:Class ;
+         rdfs:label "Service" .
+
+
+###  http://example.org/wildfire#Stakeholder
+:Stakeholder rdf:type owl:Class ;
+             rdfs:label "Stakeholder" .
+
+
+###  http://example.org/wildfire#StakeholderLocation
+:StakeholderLocation rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#Team
+:Team rdf:type owl:Class ;
+      rdfs:subClassOf :Stakeholder ;
+      rdfs:label "Team" .
+
+
+###  http://example.org/wildfire#Temperature
+:Temperature rdf:type owl:Class ;
+             rdfs:subClassOf :WeatherConditionParameter ;
+             rdfs:label "Temperature" .
+
+
+###  http://example.org/wildfire#Topography
+:Topography rdf:type owl:Class ;
+            rdfs:label "Topography" .
+
+
+###  http://example.org/wildfire#TopographyWeatherCondition
+:TopographyWeatherCondition rdf:type owl:Class .
+
+
+###  http://example.org/wildfire#TrainedVolunteer
+:TrainedVolunteer rdf:type owl:Class ;
+                  rdfs:subClassOf :Stakeholder ;
+                  rdfs:label "TrainedVolunteer" .
+
+
+###  http://example.org/wildfire#UrbanFire
+:UrbanFire rdf:type owl:Class ;
+           rdfs:subClassOf :IncidentFire ;
+           rdfs:label "UrbanFire" .
+
+
+###  http://example.org/wildfire#Vehicle
+:Vehicle rdf:type owl:Class ;
+         rdfs:label "Vehicle" .
+
+
+###  http://example.org/wildfire#WaterQuality
+:WaterQuality rdf:type owl:Class ;
+              rdfs:subClassOf :Observation ;
+              rdfs:label "WaterQuality" .
+
+
+###  http://example.org/wildfire#WeatherCondition
+:WeatherCondition rdf:type owl:Class ;
+                  rdfs:label "WeatherCondition" .
+
+
+###  http://example.org/wildfire#WeatherConditionParameter
+:WeatherConditionParameter rdf:type owl:Class ;
+                           rdfs:subClassOf :WeatherCondition ;
+                           rdfs:label "WeatherConditionParameter" .
+
+
+###  http://example.org/wildfire#WeatherForecast
+:WeatherForecast rdf:type owl:Class ;
+                 rdfs:label "WeatherForecast" .
+
+
+###  http://example.org/wildfire#WindSpeed
+:WindSpeed rdf:type owl:Class ;
+           rdfs:subClassOf :WeatherConditionParameter ;
+           rdfs:label "WindSpeed" .
+
+###  http://example.org/wildfire#WindSpeed
+:WindSpeed rdf:type owl:Class ;
+           rdfs:subClassOf :WeatherConditionParameter ;
+           rdfs:label "WindSpeed" .
+
+###  http://example.org/wildfire#SmokeClassification
+:SmokeClassification rdf:type owl:Class ;
+           rdfs:subClassOf :Observation ;
+           rdfs:label "SmokeClassification" .
+
+###  http://example.org/wildfire#FireTruck
+:FireTruck rdf:type owl:Class ;
+           rdfs:subClassOf :Vehicle ;
+           rdfs:label "FireTruck" .
+
+
+###  http://example.org/wildfire#SearchAndRescueMission
+:SearchAndRescueMission rdf:type owl:Class ;
+           rdfs:subClassOf :Mission ;
+           rdfs:label "SearchAndRescueMission" .
+
+###  http://example.org/wildfire#White
+:White rdf:type owl:Class ;
+           rdfs:subClassOf :SmokeClassification ;
+           rdfs:label "White" .
+
+###  http://example.org/wildfire#Black
+:Black rdf:type owl:Class ;
+           rdfs:subClassOf :SmokeClassification ;
+           rdfs:label "Black" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.org/wildfire#affects
+:affects rdf:type owl:ObjectProperty ;
+         rdfs:domain :IncidentFire ;
+         rdfs:range :Impact .
+
+
+###  http://example.org/wildfire#calculates
+:calculates rdf:type owl:ObjectProperty ;
+            rdfs:range :WeatherCondition .
+
+
+###  http://example.org/wildfire#capturedBy
+:capturedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Observation ;
+            rdfs:range :Satellite ,
+                       :Sensor .
+
+
+###  http://example.org/wildfire#conducts
+:conducts rdf:type owl:ObjectProperty ;
+          rdfs:domain :Stakeholder ;
+          rdfs:range :Mission .
+
+
+###  http://example.org/wildfire#coordinates
+:coordinates rdf:type owl:ObjectProperty ;
+             rdfs:domain :Stakeholder ;
+             rdfs:range :Mission .
+
+
+###  http://example.org/wildfire#depicts
+:depicts rdf:type owl:ObjectProperty ;
+         rdfs:domain :MediaItem ;
+         rdfs:range :IncidentFire .
+
+
+###  http://example.org/wildfire#deploys
+:deploys rdf:type owl:ObjectProperty ;
+         rdfs:domain :Mission ;
+         rdfs:range :Vehicle .
+
+
+###  http://example.org/wildfire#forecasts
+:forecasts rdf:type owl:ObjectProperty ;
+           rdfs:domain :WeatherForecast ;
+           rdfs:range :Location .
+
+
+###  http://example.org/wildfire#hasClimate
+:hasClimate rdf:type owl:ObjectProperty ;
+            rdfs:domain :Location ;
+            rdfs:range :Climate .
+
+
+###  http://example.org/wildfire#hasFireImpact
+:hasFireImpact rdf:type owl:ObjectProperty ;
+               rdfs:domain :IncidentFire ;
+               rdfs:range :FireImpact .
+
+
+###  http://example.org/wildfire#hasFireLocation
+:hasFireLocation rdf:type owl:ObjectProperty ;
+                 rdfs:domain :IncidentFire ;
+                 rdfs:range :FireLocation .
+
+
+###  http://example.org/wildfire#hasFireWeatherCondition
+:hasFireWeatherCondition rdf:type owl:ObjectProperty ;
+                         rdfs:domain :IncidentFire ;
+                         rdfs:range :FireWeatherCondition .
+
+
+###  http://example.org/wildfire#hasForeCastWeatherParameter
+:hasForeCastWeatherParameter rdf:type owl:ObjectProperty ;
+                             rdfs:domain :WeatherForecast .
+
+
+###  http://example.org/wildfire#hasGeometry
+:hasGeometry rdf:type owl:ObjectProperty ;
+             rdfs:domain :Location ;
+             rdfs:range :Geometry .
+
+
+###  http://example.org/wildfire#hasHumidity
+:hasHumidity rdf:type owl:ObjectProperty ;
+             rdfs:domain :WeatherCondition ;
+             rdfs:range :Humidity .
+
+
+###  http://example.org/wildfire#hasImpactType
+:hasImpactType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Impact ;
+               rdfs:range :ImpactType .
+
+
+###  http://example.org/wildfire#hasIncidentImpact
+:hasIncidentImpact rdf:type owl:ObjectProperty ;
+                   rdfs:domain :IncidentFire ;
+                   rdfs:range :IncidentImpact .
+
+
+###  http://example.org/wildfire#hasIncidentLocation
+:hasIncidentLocation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :IncidentFire ;
+                     rdfs:range :IncidentLocation .
+
+
+###  http://example.org/wildfire#hasIncidentType
+:hasIncidentType rdf:type owl:ObjectProperty ;
+                 rdfs:domain :IncidentFire ;
+                 rdfs:range :IncidentType .
+
+
+###  http://example.org/wildfire#hasLocationWeatherCondition
+:hasLocationWeatherCondition rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Location ;
+                             rdfs:range :LocationWeatherCondition .
+
+
+###  http://example.org/wildfire#hasLocationWeatherForecast
+:hasLocationWeatherForecast rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Location ;
+                            rdfs:range :LocationWeatherForecast .
+
+
+###  http://example.org/wildfire#hasMediaLocation
+:hasMediaLocation rdf:type owl:ObjectProperty ;
+                  rdfs:domain :MediaItem ;
+                  rdfs:range :MediaLocation .
+
+
+###  http://example.org/wildfire#hasMeteorologyClimate
+:hasMeteorologyClimate rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Location ;
+                       rdfs:range :MeteorologyClimate .
+
+
+###  http://example.org/wildfire#hasMeteorologyWeatherCondition
+:hasMeteorologyWeatherCondition rdf:type owl:ObjectProperty ;
+                                rdfs:domain :Location ;
+                                rdfs:range :MeteorologyWeatherCondition .
+
+
+###  http://example.org/wildfire#hasMission
+:hasMission rdf:type owl:ObjectProperty ;
+            rdfs:domain :Stakeholder ;
+            rdfs:range :Mission .
+
+
+###  http://example.org/wildfire#hasRelatedIncident
+:hasRelatedIncident rdf:type owl:ObjectProperty ;
+                    rdfs:domain :IncidentFire .
+
+
+###  http://example.org/wildfire#hasReport
+:hasReport rdf:type owl:ObjectProperty ;
+           rdfs:domain :Stakeholder ;
+           rdfs:range :Report .
+
+
+###  http://example.org/wildfire#hasStakeholderLocation
+:hasStakeholderLocation rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Stakeholder ;
+                        rdfs:range :StakeholderLocation .
+
+
+###  http://example.org/wildfire#hasTemperature
+:hasTemperature rdf:type owl:ObjectProperty ;
+                rdfs:domain :WeatherCondition ;
+                rdfs:range :Temperature .
+
+
+###  http://example.org/wildfire#hasTopography
+:hasTopography rdf:type owl:ObjectProperty ;
+               rdfs:domain :Location ;
+               rdfs:range :Topography .
+
+
+###  http://example.org/wildfire#hasTopographyWeatherCondition
+:hasTopographyWeatherCondition rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Topography ;
+                               rdfs:range :TopographyWeatherCondition .
+
+
+###  http://example.org/wildfire#hasWeatherCondition
+:hasWeatherCondition rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Location ;
+                     rdfs:range :WeatherCondition .
+
+
+###  http://example.org/wildfire#hasWeatherForecast
+:hasWeatherForecast rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Location ;
+                    rdfs:range :WeatherForecast .
+
+
+###  http://example.org/wildfire#hasWindSpeed
+:hasWindSpeed rdf:type owl:ObjectProperty ;
+              rdfs:domain :WeatherCondition ;
+              rdfs:range :WindSpeed .
+
+
+###  http://example.org/wildfire#involves
+:involves rdf:type owl:ObjectProperty ;
+          rdfs:domain :Mission ;
+          rdfs:range :Service .
+
+
+###  http://example.org/wildfire#leads
+:leads rdf:type owl:ObjectProperty ;
+       rdfs:domain :IncidentFire ;
+       rdfs:range :IncidentFire .
+
+
+###  http://example.org/wildfire#leadsTo
+:leadsTo rdf:type owl:ObjectProperty ;
+         rdfs:domain :IncidentFire ;
+         rdfs:range :Impact .
+
+
+###  http://example.org/wildfire#locatedAt
+:locatedAt rdf:type owl:ObjectProperty ;
+           rdfs:domain :IncidentFire ;
+           rdfs:range :Location .
+
+
+###  http://example.org/wildfire#madeBySatellite
+:madeBySatellite rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Observation ;
+                 rdfs:range :Satellite .
+
+
+###  http://example.org/wildfire#madeBySensor
+:madeBySensor rdf:type owl:ObjectProperty ;
+              rdfs:domain :Observation ;
+              rdfs:range :Sensor .
+
+
+###  http://example.org/wildfire#observes
+:observes rdf:type owl:ObjectProperty ;
+          rdfs:domain :Observation ;
+          rdfs:range :IncidentFire .
+
+
+###  http://example.org/wildfire#performedBy
+:performedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Mission ;
+             rdfs:range :Stakeholder .
+
+
+###  http://example.org/wildfire#produces
+:produces rdf:type owl:ObjectProperty ;
+          rdfs:domain :Sensor ;
+          rdfs:range :Observation .
+
+
+###  http://example.org/wildfire#producesIncidentData
+:producesIncidentData rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Sensor ;
+                      rdfs:range :IncidentFire .
+
+
+###  http://example.org/wildfire#publishedBy
+:publishedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Media ;
+             rdfs:range :Stakeholder .
+
+
+###  http://example.org/wildfire#rehabilitates
+:rehabilitates rdf:type owl:ObjectProperty ;
+               rdfs:range :Location .
+
+
+###  http://example.org/wildfire#relatesTo
+:relatesTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Observation ;
+           rdfs:range :IncidentFire ,
+                      :WeatherCondition .
+
+
+###  http://example.org/wildfire#requires
+:requires rdf:type owl:ObjectProperty ;
+          rdfs:domain :Mission ;
+          rdfs:range :Resource .
+
+
+###  http://example.org/wildfire#supports
+:supports rdf:type owl:ObjectProperty ;
+          rdfs:domain :Service ;
+          rdfs:range :Mission .
+
+
+###  http://example.org/wildfire#threatens
+:threatens rdf:type owl:ObjectProperty ;
+           rdfs:domain :IncidentFire ;
+           rdfs:range :Animal ,
+                      :Facility .
+
+
+###  http://example.org/wildfire#uses
+:uses rdf:type owl:ObjectProperty ;
+      rdfs:domain :Mission ;
+      rdfs:range :Vehicle .
+
+
+###  http://example.org/wildfire#hascolor
+:uses rdf:type owl:ObjectProperty ;
+      rdfs:domain :SmokeClassification ;
+      rdfs:range :Black ,
+		 :White.
+
+###  http://example.org/wildfire#informsabout
+:uses rdf:type owl:ObjectProperty ;
+      rdfs:domain :Observation ;
+      rdfs:range :Air ,
+		 :GroundSituation ,
+                 :WaterQuality ,
+                 :SmokeClassification.
+
+
+
