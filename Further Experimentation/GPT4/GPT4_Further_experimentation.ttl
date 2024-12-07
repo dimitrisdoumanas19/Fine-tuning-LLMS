@@ -1,0 +1,793 @@
+@prefix : <http://example.org/wildfire-sar#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Classes
+#################################################################
+
+### Weather-Related Classes
+:WeatherCondition rdf:type owl:Class ;
+    rdfs:label "Weather Condition" ;
+    rdfs:comment "Meteorological factors affecting wildfire risk and behavior." .
+
+:Temperature rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherCondition ;
+    rdfs:label "Temperature" ;
+    rdfs:comment "Atmospheric temperature in degrees Celsius." .
+
+:Humidity rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherCondition ;
+    rdfs:label "Humidity" ;
+    rdfs:comment "Atmospheric humidity percentage." .
+
+:WindSpeed rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherCondition ;
+    rdfs:label "Wind Speed" ;
+    rdfs:comment "Speed of wind in km/h or mph." .
+
+:WindDirection rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherCondition ;
+    rdfs:label "Wind Direction" ;
+    rdfs:comment "Direction from which the wind is blowing." .
+
+:Precipitation rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherCondition ;
+    rdfs:label "Precipitation" ;
+    rdfs:comment "Amount of rainfall in millimeters." .
+
+:FireWeatherIndex rdf:type owl:Class ;
+    rdfs:label "Fire Weather Index" ;
+    rdfs:comment "Index indicating the risk of fire based on weather conditions." .
+
+:ClimateChangeEffect rdf:type owl:Class ;
+    rdfs:label "Climate Change Effect" ;
+    rdfs:comment "Impact of climate change on wildfire frequency and intensity." .
+
+### Incident-Related Classes
+:WildfireIncident rdf:type owl:Class ;
+    rdfs:label "Wildfire Incident" ;
+    rdfs:comment "An occurrence of uncontrolled fire in a wilderness area." .
+
+:IncidentLocation rdf:type owl:Class ;
+    rdfs:label "Incident Location" ;
+    rdfs:comment "Geographical location where the incident took place." .
+
+:IncidentPriority rdf:type owl:Class ;
+    rdfs:label "Incident Priority" ;
+    rdfs:comment "Priority level assigned to an incident during disaster management." .
+
+:CauseOfFire rdf:type owl:Class ;
+    rdfs:label "Cause of Fire" ;
+    rdfs:comment "Reason behind the initiation of the wildfire." .
+
+:AffectedArea rdf:type owl:Class ;
+    rdfs:label "Affected Area" ;
+    rdfs:comment "Area impacted by the wildfire, measured in acres or hectares." .
+
+:EvacuationOrder rdf:type owl:Class ;
+    rdfs:label "Evacuation Order" ;
+    rdfs:comment "Official directive for evacuation due to the wildfire." .
+
+### Observation and Data Classes
+:ObservationData rdf:type owl:Class ;
+    rdfs:label "Observation Data" ;
+    rdfs:comment "Data collected from observations, including satellite and sensor data." .
+
+:SatelliteImage rdf:type owl:Class ;
+    rdfs:subClassOf :ObservationData ;
+    rdfs:label "Satellite Image" ;
+    rdfs:comment "Images captured by satellites showing the wildfire." .
+
+:SensorReading rdf:type owl:Class ;
+    rdfs:subClassOf :ObservationData ;
+    rdfs:label "Sensor Reading" ;
+    rdfs:comment "Data readings from ground or aerial sensors." .
+
+:SmokeClassification rdf:type owl:Class ;
+    rdfs:label "Smoke Classification" ;
+    rdfs:comment "Classification of smoke based on density and pollutant levels." .
+
+:AirQualityIndex rdf:type owl:Class ;
+    rdfs:label "Air Quality Index" ;
+    rdfs:comment "Index indicating the quality of air and level of pollution." .
+
+:DataItem rdf:type owl:Class ;
+    rdfs:label "Data Item" ;
+    rdfs:comment "Individual item of data with associated metadata." .
+
+### Vulnerable Objects and Species Classes
+:VulnerableObject rdf:type owl:Class ;
+    rdfs:label "Vulnerable Object" ;
+    rdfs:comment "Objects at risk due to the wildfire, including infrastructure and environments." .
+
+:ResidentialProperty rdf:type owl:Class ;
+    rdfs:subClassOf :VulnerableObject ;
+    rdfs:label "Residential Property" ;
+    rdfs:comment "Homes and living spaces of individuals." .
+
+:School rdf:type owl:Class ;
+    rdfs:subClassOf :VulnerableObject ;
+    rdfs:label "School" ;
+    rdfs:comment "Educational institutions." .
+
+:WildlifeSanctuary rdf:type owl:Class ;
+    rdfs:subClassOf :VulnerableObject ;
+    rdfs:label "Wildlife Sanctuary" ;
+    rdfs:comment "Protected areas for wildlife." .
+
+:EndangeredSpecies rdf:type owl:Class ;
+    rdfs:label "Endangered Species" ;
+    rdfs:comment "Species at risk of extinction affected by the wildfire." .
+
+### Missions and Services Classes
+:Mission rdf:type owl:Class ;
+    rdfs:label "Mission" ;
+    rdfs:comment "Specific operations conducted during wildfire incidents." .
+
+:FireSuppression rdf:type owl:Class ;
+    rdfs:subClassOf :Mission ;
+    rdfs:label "Fire Suppression" ;
+    rdfs:comment "Activities aimed at controlling and extinguishing the wildfire." .
+
+:Evacuation rdf:type owl:Class ;
+    rdfs:subClassOf :Mission ;
+    rdfs:label "Evacuation" ;
+    rdfs:comment "Operations to move people away from danger zones." .
+
+:Reconnaissance rdf:type owl:Class ;
+    rdfs:subClassOf :Mission ;
+    rdfs:label "Reconnaissance" ;
+    rdfs:comment "Gathering information about the wildfire for planning." .
+
+:Service rdf:type owl:Class ;
+    rdfs:label "Service" ;
+    rdfs:comment "Support provided during wildfire incidents." .
+
+:AerialSupport rdf:type owl:Class ;
+    rdfs:subClassOf :Service ;
+    rdfs:label "Aerial Support" ;
+    rdfs:comment "Use of aircraft for firefighting activities." .
+
+:GroundSupport rdf:type owl:Class ;
+    rdfs:subClassOf :Service ;
+    rdfs:label "Ground Support" ;
+    rdfs:comment "Use of ground vehicles and equipment for firefighting." .
+
+:MedicalService rdf:type owl:Class ;
+    rdfs:subClassOf :Service ;
+    rdfs:label "Medical Service" ;
+    rdfs:comment "Medical assistance provided to affected individuals." .
+
+:LogisticsCoordination rdf:type owl:Class ;
+    rdfs:subClassOf :Service ;
+    rdfs:label "Logistics Coordination" ;
+    rdfs:comment "Management of resources and supplies." .
+
+### Resources and Methods Classes
+:Resource rdf:type owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:comment "Personnel, equipment, and supplies used during missions." .
+
+:Firefighter rdf:type owl:Class ;
+    rdfs:subClassOf :Resource ;
+    rdfs:label "Firefighter" ;
+    rdfs:comment "Personnel trained to combat fires." .
+
+:FireEngine rdf:type owl:Class ;
+    rdfs:subClassOf :Resource ;
+    rdfs:label "Fire Engine" ;
+    rdfs:comment "Vehicles equipped for firefighting." .
+
+:Helicopter rdf:type owl:Class ;
+    rdfs:subClassOf :Resource ;
+    rdfs:label "Helicopter" ;
+    rdfs:comment "Aircraft used for aerial support." .
+
+:Bulldozer rdf:type owl:Class ;
+    rdfs:subClassOf :Resource ;
+    rdfs:label "Bulldozer" ;
+    rdfs:comment "Heavy equipment used for creating firebreaks." .
+
+:Method rdf:type owl:Class ;
+    rdfs:label "Method" ;
+    rdfs:comment "Techniques used to suppress wildfires." .
+
+:FirebreakConstruction rdf:type owl:Class ;
+    rdfs:subClassOf :Method ;
+    rdfs:label "Firebreak Construction" ;
+    rdfs:comment "Creating barriers to stop the spread of fire." .
+
+:PrescribedBurn rdf:type owl:Class ;
+    rdfs:subClassOf :Method ;
+    rdfs:label "Prescribed Burn" ;
+    rdfs:comment "Controlled burning to reduce fuel." .
+
+:AerialWaterDrop rdf:type owl:Class ;
+    rdfs:subClassOf :Method ;
+    rdfs:label "Aerial Water Drop" ;
+    rdfs:comment "Dropping water or retardant from aircraft." .
+
+### Population and Community Impact Classes
+:PopulationImpact rdf:type owl:Class ;
+    rdfs:label "Population Impact" ;
+    rdfs:comment "Effects of the wildfire on human populations." .
+
+:Community rdf:type owl:Class ;
+    rdfs:label "Community" ;
+    rdfs:comment "Group of people living in the affected area." .
+
+:EvacuationMission rdf:type owl:Class ;
+    rdfs:subClassOf :Mission ;
+    rdfs:label "Evacuation Mission" ;
+    rdfs:comment "Specific mission to evacuate people." .
+
+:TransportationImpact rdf:type owl:Class ;
+    rdfs:label "Transportation Impact" ;
+    rdfs:comment "Effects on local traffic and transportation systems." .
+
+:EconomicImpact rdf:type owl:Class ;
+    rdfs:label "Economic Impact" ;
+    rdfs:comment "Financial consequences of the wildfire." .
+
+### Environmental Impact and Rehabilitation Classes
+:EnvironmentalImpact rdf:type owl:Class ;
+    rdfs:label "Environmental Impact" ;
+    rdfs:comment "Effects of the wildfire on the environment." .
+
+:RehabilitationEffort rdf:type owl:Class ;
+    rdfs:label "Rehabilitation Effort" ;
+    rdfs:comment "Actions taken to restore the environment post-wildfire." .
+
+:Reforestation rdf:type owl:Class ;
+    rdfs:subClassOf :RehabilitationEffort ;
+    rdfs:label "Reforestation" ;
+    rdfs:comment "Planting trees to restore forested areas." .
+
+:SoilStabilization rdf:type owl:Class ;
+    rdfs:subClassOf :RehabilitationEffort ;
+    rdfs:label "Soil Stabilization" ;
+    rdfs:comment "Preventing soil erosion after a wildfire." .
+
+:WaterQualityMonitoring rdf:type owl:Class ;
+    rdfs:subClassOf :RehabilitationEffort ;
+    rdfs:label "Water Quality Monitoring" ;
+    rdfs:comment "Assessing water resources for contamination." .
+
+### Technology and Modeling Classes
+:Technology rdf:type owl:Class ;
+    rdfs:label "Technology" ;
+    rdfs:comment "Technological tools used in wildfire detection and modeling." .
+
+:SatelliteTechnology rdf:type owl:Class ;
+    rdfs:subClassOf :Technology ;
+    rdfs:label "Satellite Technology" ;
+    rdfs:comment "Use of satellites for observation and data collection." .
+
+:FireBehaviorModel rdf:type owl:Class ;
+    rdfs:subClassOf :Technology ;
+    rdfs:label "Fire Behavior Model" ;
+    rdfs:comment "Models predicting wildfire spread and behavior." .
+
+### Safety and Protocols Classes
+:SafetyProtocol rdf:type owl:Class ;
+    rdfs:label "Safety Protocol" ;
+    rdfs:comment "Guidelines to ensure safety during firefighting operations." .
+
+:TrainingProgram rdf:type owl:Class ;
+    rdfs:label "Training Program" ;
+    rdfs:comment "Educational programs for firefighters and responders." .
+
+### Additional Classes
+:GovernmentAgency rdf:type owl:Class ;
+    rdfs:label "Government Agency" ;
+    rdfs:comment "Public organizations involved in managing wildfires." .
+
+:VolunteerOrganization rdf:type owl:Class ;
+    rdfs:label "Volunteer Organization" ;
+    rdfs:comment "Non-profit groups assisting in wildfire response." .
+
+:HistoricalData rdf:type owl:Class ;
+    rdfs:label "Historical Data" ;
+    rdfs:comment "Past records of wildfires and related information." .
+
+:VegetationType rdf:type owl:Class ;
+    rdfs:label "Vegetation Type" ;
+    rdfs:comment "Types of vegetation affecting wildfire risk." .
+
+:PreventiveMeasure rdf:type owl:Class ;
+    rdfs:label "Preventive Measure" ;
+    rdfs:comment "Actions taken to prevent wildfires before they occur." .
+
+:CulturalSite rdf:type owl:Class ;
+    rdfs:label "Cultural Site" ;
+    rdfs:comment "Sites of cultural or historical significance at risk." .
+
+:CommunicationChannel rdf:type owl:Class ;
+    rdfs:label "Communication Channel" ;
+    rdfs:comment "Mediums used to communicate information to the public." .
+
+:Topography rdf:type owl:Class ;
+    rdfs:label "Topography" ;
+    rdfs:comment "Physical features of the land affecting wildfire behavior." .
+
+:CommunityEngagement rdf:type owl:Class ;
+    rdfs:label "Community Engagement" ;
+    rdfs:comment "Involvement of the community in wildfire preparedness and response." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+### Relationships between entities
+
+:hasWeatherCondition rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :WeatherCondition ;
+    rdfs:label "has weather condition" ;
+    rdfs:comment "Associates a wildfire incident with relevant weather conditions." .
+
+:hasLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident , :Mission , :VulnerableObject , :DataItem ;
+    rdfs:range :IncidentLocation ;
+    rdfs:label "has location" ;
+    rdfs:comment "Specifies the location of an entity." .
+
+:hasPriority rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :IncidentPriority ;
+    rdfs:label "has priority" ;
+    rdfs:comment "Indicates the priority level of an incident." .
+
+:hasCause rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :CauseOfFire ;
+    rdfs:label "has cause" ;
+    rdfs:comment "Indicates the cause of the wildfire." .
+
+:affectsArea rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :AffectedArea ;
+    rdfs:label "affects area" ;
+    rdfs:comment "Specifies the area affected by the wildfire." .
+
+:hasEvacuationOrder rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :EvacuationOrder ;
+    rdfs:label "has evacuation order" ;
+    rdfs:comment "Indicates evacuation orders associated with the incident." .
+
+:collectedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :ObservationData ;
+    rdfs:range :DataSource ;
+    rdfs:label "collected by" ;
+    rdfs:comment "Specifies the source that collected the data." .
+
+:depicts rdf:type owl:ObjectProperty ;
+    rdfs:domain :ObservationData ;
+    rdfs:range :WildfireIncident , :SmokeClassification , :AirQualityIndex ;
+    rdfs:label "depicts" ;
+    rdfs:comment "Indicates what the data represents." .
+
+:isInvolvedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :VulnerableObject , :EndangeredSpecies ;
+    rdfs:range :WildfireIncident ;
+    rdfs:label "is involved in" ;
+    rdfs:comment "Links vulnerable objects and species to the incident." .
+
+:offersService rdf:type owl:ObjectProperty ;
+    rdfs:domain :ServiceProvider ;
+    rdfs:range :Service ;
+    rdfs:label "offers service" ;
+    rdfs:comment "Indicates services offered by a provider." .
+
+:hasMission rdf:type owl:ObjectProperty ;
+    rdfs:domain :ServiceProvider ;
+    rdfs:range :Mission ;
+    rdfs:label "has mission" ;
+    rdfs:comment "Specifies missions undertaken by a provider." .
+
+:usesResource rdf:type owl:ObjectProperty ;
+    rdfs:domain :Mission ;
+    rdfs:range :Resource ;
+    rdfs:label "uses resource" ;
+    rdfs:comment "Indicates resources used in a mission." .
+
+:employsMethod rdf:type owl:ObjectProperty ;
+    rdfs:domain :Mission ;
+    rdfs:range :Method ;
+    rdfs:label "employs method" ;
+    rdfs:comment "Specifies methods used in a mission." .
+
+:impactsPopulation rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :PopulationImpact ;
+    rdfs:label "impacts population" ;
+    rdfs:comment "Indicates the impact on human populations." .
+
+:affectsTransportation rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :TransportationImpact ;
+    rdfs:label "affects transportation" ;
+    rdfs:comment "Indicates effects on transportation systems." .
+
+:hasEconomicImpact rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :EconomicImpact ;
+    rdfs:label "has economic impact" ;
+    rdfs:comment "Specifies economic consequences of the incident." .
+
+:impactsEnvironment rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :EnvironmentalImpact ;
+    rdfs:label "impacts environment" ;
+    rdfs:comment "Indicates environmental effects of the wildfire." .
+
+:hasRehabilitationEffort rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :RehabilitationEffort ;
+    rdfs:label "has rehabilitation effort" ;
+    rdfs:comment "Links rehabilitation actions to the incident." .
+
+:utilizesTechnology rdf:type owl:ObjectProperty ;
+    rdfs:domain :Mission , :WildfireIncident ;
+    rdfs:range :Technology ;
+    rdfs:label "utilizes technology" ;
+    rdfs:comment "Indicates technology used in missions or incidents." .
+
+:followsSafetyProtocol rdf:type owl:ObjectProperty ;
+    rdfs:domain :Firefighter ;
+    rdfs:range :SafetyProtocol ;
+    rdfs:label "follows safety protocol" ;
+    rdfs:comment "Indicates safety guidelines followed by firefighters." .
+
+:receivesTraining rdf:type owl:ObjectProperty ;
+    rdfs:domain :Firefighter ;
+    rdfs:range :TrainingProgram ;
+    rdfs:label "receives training" ;
+    rdfs:comment "Indicates training programs attended by firefighters." .
+
+:isManagedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :GovernmentAgency ;
+    rdfs:label "is managed by" ;
+    rdfs:comment "Specifies the agency managing the incident." .
+
+:assistedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :GovernmentAgency ;
+    rdfs:range :VolunteerOrganization ;
+    rdfs:label "assisted by" ;
+    rdfs:comment "Indicates volunteer organizations assisting in response." .
+
+:hasHistoricalData rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :HistoricalData ;
+    rdfs:label "has historical data" ;
+    rdfs:comment "Links incidents to historical records." .
+
+:hasVegetationType rdf:type owl:ObjectProperty ;
+    rdfs:domain :IncidentLocation ;
+    rdfs:range :VegetationType ;
+    rdfs:label "has vegetation type" ;
+    rdfs:comment "Specifies vegetation types in the incident area." .
+
+:hadPreventiveMeasure rdf:type owl:ObjectProperty ;
+    rdfs:domain :IncidentLocation ;
+    rdfs:range :PreventiveMeasure ;
+    rdfs:label "had preventive measure" ;
+    rdfs:comment "Indicates preventive measures in place before the wildfire." .
+
+:threatensCulturalSite rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :CulturalSite ;
+    rdfs:label "threatens cultural site" ;
+    rdfs:comment "Indicates cultural sites at risk due to the wildfire." .
+
+:communicatedVia rdf:type owl:ObjectProperty ;
+    rdfs:domain :EvacuationOrder , :GovernmentAgency ;
+    rdfs:range :CommunicationChannel ;
+    rdfs:label "communicated via" ;
+    rdfs:comment "Specifies communication channels used." .
+
+:affectsAirTravel rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :AirTravelImpact ;
+    rdfs:label "affects air travel" ;
+    rdfs:comment "Indicates impact on air transportation." .
+
+:hasTopography rdf:type owl:ObjectProperty ;
+    rdfs:domain :IncidentLocation ;
+    rdfs:range :Topography ;
+    rdfs:label "has topography" ;
+    rdfs:comment "Specifies the topographical features of the area." .
+
+:involvesCommunityEngagement rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident , :Mission ;
+    rdfs:range :CommunityEngagement ;
+    rdfs:label "involves community engagement" ;
+    rdfs:comment "Indicates community involvement in efforts." .
+
+:influencedByClimateChange rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :ClimateChangeEffect ;
+    rdfs:label "influenced by climate change" ;
+    rdfs:comment "Indicates the effect of climate change on the incident." .
+
+#################################################################
+# Data Properties
+#################################################################
+
+### Attributes of entities
+
+:hasValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherCondition , :AirQualityIndex , :AffectedArea , :PopulationDensity ;
+    rdfs:range xsd:float ;
+    rdfs:label "has value" ;
+    rdfs:comment "Numerical value associated with an entity." .
+
+:hasUnit rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherCondition , :AirQualityIndex , :AffectedArea ;
+    rdfs:range xsd:string ;
+    rdfs:label "has unit" ;
+    rdfs:comment "Unit of measurement for the value." .
+
+:hasDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ObservationData , :HistoricalData ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has date" ;
+    rdfs:comment "Date associated with the data or event." .
+
+:hasSeverity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :IncidentPriority , :AirQualityIndex , :EnvironmentalImpact ;
+    rdfs:range xsd:string ;
+    rdfs:label "has severity" ;
+    rdfs:comment "Severity level of an entity." .
+
+:hasDescription rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Mission , :Method , :SafetyProtocol , :TrainingProgram , :Technology ;
+    rdfs:range xsd:string ;
+    rdfs:label "has description" ;
+    rdfs:comment "Textual description of an entity." .
+
+:hasPopulationDensity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :IncidentLocation ;
+    rdfs:range xsd:float ;
+    rdfs:label "has population density" ;
+    rdfs:comment "Population density of the area (people per square kilometer)." .
+
+:hasName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "has name" ;
+    rdfs:comment "Name of the entity." .
+
+#################################################################
+# Individuals (Examples)
+#################################################################
+
+### Wildfire Incident Example
+:WildfireIncident_PineValley rdf:type :WildfireIncident ;
+    :hasName "Pine Valley Wildfire" ;
+    :isManagedBy :GovernmentAgency_FireDepartment ;
+    :hasWeatherCondition :Temperature_35C , :Humidity_10Percent , :WindSpeed_25kmh , :Precipitation_Zero ;
+    :hasLocation :IncidentLocation_PineValley ;
+    :hasCause :CauseOfFire_LightningStrike ;
+    :affectsArea :AffectedArea_2000Acres ;
+    :hasEvacuationOrder :EvacuationOrder_001 ;
+    :impactsPopulation :PopulationImpact_PineValley ;
+    :impactsEnvironment :EnvironmentalImpact_PineValley ;
+    :utilizesTechnology :SatelliteTechnology_SensorSat , :FireBehaviorModel_ModelX ;
+    :influencedByClimateChange :ClimateChangeEffect_IncreasedRisk ;
+    :threatensCulturalSite :CulturalSite_MaplewoodLodge ;
+    :hasHistoricalData :HistoricalData_PineValleyWildfires ;
+    :hasTopography :Topography_Mountainous ;
+    :hasVegetationType :VegetationType_DryBrushPineForest .
+
+### Weather Condition Examples
+:Temperature_35C rdf:type :Temperature ;
+    :hasValue 35.0 ;
+    :hasUnit "Celsius" .
+
+:Humidity_10Percent rdf:type :Humidity ;
+    :hasValue 10.0 ;
+    :hasUnit "Percent" .
+
+:WindSpeed_25kmh rdf:type :WindSpeed ;
+    :hasValue 25.0 ;
+    :hasUnit "km/h" .
+
+:Precipitation_Zero rdf:type :Precipitation ;
+    :hasValue 0.0 ;
+    :hasUnit "mm" .
+
+### Incident Location Example
+:IncidentLocation_PineValley rdf:type :IncidentLocation ;
+    :hasName "Pine Valley National Forest" ;
+    :hasPopulationDensity 150.0 ;
+    :hasVegetationType :VegetationType_DryBrushPineForest ;
+    :hasTopography :Topography_Mountainous .
+
+### Cause of Fire Example
+:CauseOfFire_LightningStrike rdf:type :CauseOfFire ;
+    :hasDescription "Lightning strike detected during recent thunderstorm." .
+
+### Affected Area Example
+:AffectedArea_2000Acres rdf:type :AffectedArea ;
+    :hasValue 2000.0 ;
+    :hasUnit "Acres" .
+
+### Evacuation Order Example
+:EvacuationOrder_001 rdf:type :EvacuationOrder ;
+    :hasDate "2024-10-02T08:00:00Z"^^xsd:dateTime ;
+    :communicatedVia :CommunicationChannel_TextMessages , :CommunicationChannel_AudioAlerts , :CommunicationChannel_SocialMediaUpdates .
+
+### Communication Channel Examples
+:CommunicationChannel_TextMessages rdf:type :CommunicationChannel ;
+    :hasDescription "SMS alerts sent to residents." .
+
+:CommunicationChannel_AudioAlerts rdf:type :CommunicationChannel ;
+    :hasDescription "Audio alerts broadcasted via radio." .
+
+:CommunicationChannel_SocialMediaUpdates rdf:type :CommunicationChannel ;
+    :hasDescription "Updates posted on official social media platforms." .
+
+### Vulnerable Object Examples
+:ResidentialProperty_Lakeview rdf:type :ResidentialProperty ;
+    :hasLocation :IncidentLocation_Lakeview ;
+    :isInvolvedIn :WildfireIncident_PineValley .
+
+:School_ForestGlenElementary rdf:type :School ;
+    :hasLocation :IncidentLocation_ForestGlen ;
+    :isInvolvedIn :WildfireIncident_PineValley .
+
+:WildlifeSanctuary_NorthSanctuary rdf:type :WildlifeSanctuary ;
+    :hasLocation :IncidentLocation_NorthSanctuary ;
+    :isInvolvedIn :WildfireIncident_PineValley .
+
+### Endangered Species Examples
+:EndangeredSpecies_SpottedOwl rdf:type :EndangeredSpecies ;
+    :hasName "Spotted Owl" ;
+    :isInvolvedIn :WildfireIncident_PineValley .
+
+:EndangeredSpecies_RedLeggedFrog rdf:type :EndangeredSpecies ;
+    :hasName "Red-Legged Frog" ;
+    :isInvolvedIn :WildfireIncident_PineValley .
+
+### Mission Examples
+:Mission_FireSuppression_PineValley rdf:type :FireSuppression ;
+    :hasDescription "Fire suppression mission focusing on controlling the wildfire." ;
+    :usesResource :Firefighter_TeamA , :FireEngine_Unit1 , :Helicopter_Helicopter1 ;
+    :employsMethod :FirebreakConstruction_MainLine , :AerialWaterDrop_Run1 ;
+    :hasLocation :IncidentLocation_NorthernZone ;
+    :utilizesTechnology :FireBehaviorModel_ModelX .
+
+:Mission_Evacuation_Lakeview rdf:type :Evacuation ;
+    :hasDescription "Evacuation mission for residents of Lakeview." ;
+    :usesResource :Firefighter_TeamB , :Resource_EvacuationBuses ;
+    :hasLocation :IncidentLocation_Lakeview ;
+    :communicatedVia :CommunicationChannel_TextMessages , :CommunicationChannel_SocialMediaUpdates .
+
+### Resource Examples
+:Firefighter_TeamA rdf:type :Firefighter ;
+    :hasName "Team A" ;
+    :receivesTraining :TrainingProgram_WildfireSuppression ;
+    :followsSafetyProtocol :SafetyProtocol_Standard .
+
+:FireEngine_Unit1 rdf:type :FireEngine ;
+    :hasName "Engine 1" ;
+    :hasDescription "Equipped with hoses and water tanks." .
+
+:Helicopter_Helicopter1 rdf:type :Helicopter ;
+    :hasName "Helicopter 1" ;
+    :hasDescription "Used for aerial water drops." .
+
+:Resource_EvacuationBuses rdf:type :Resource ;
+    :hasName "Evacuation Buses" ;
+    :hasDescription "Buses used to evacuate residents." .
+
+### Method Examples
+:FirebreakConstruction_MainLine rdf:type :FirebreakConstruction ;
+    :hasDescription "Constructing main firebreak line using bulldozers." .
+
+:AerialWaterDrop_Run1 rdf:type :AerialWaterDrop ;
+    :hasDescription "First run of aerial water drops over the fire front." .
+
+### Population Impact Example
+:PopulationImpact_PineValley rdf:type :PopulationImpact ;
+    :hasDescription "Impact on residents requiring evacuation and medical services." .
+
+### Environmental Impact Example
+:EnvironmentalImpact_PineValley rdf:type :EnvironmentalImpact ;
+    :hasSeverity "High" ;
+    :hasDescription "Destruction of wildlife habitats and loss of biodiversity." .
+
+### Rehabilitation Effort Examples
+:RehabilitationEffort_PineValley rdf:type :RehabilitationEffort ;
+    :hasRehabilitationEffort :Reforestation_PineValley , :SoilStabilization_PineValley , :WaterQualityMonitoring_PineValley .
+
+:Reforestation_PineValley rdf:type :Reforestation ;
+    :hasDescription "Replanting trees in affected areas." .
+
+:SoilStabilization_PineValley rdf:type :SoilStabilization ;
+    :hasDescription "Applying measures to prevent soil erosion." .
+
+:WaterQualityMonitoring_PineValley rdf:type :WaterQualityMonitoring ;
+    :hasDescription "Monitoring water bodies for contamination." .
+
+### Technology Examples
+:SatelliteTechnology_SensorSat rdf:type :SatelliteTechnology ;
+    :hasName "SensorSat" ;
+    :hasDescription "Satellite equipped with thermal sensors for hotspot detection." .
+
+:FireBehaviorModel_ModelX rdf:type :FireBehaviorModel ;
+    :hasName "Model X" ;
+    :hasDescription "Predicts fire spread based on topography and weather conditions." .
+
+### Safety Protocol Example
+:SafetyProtocol_Standard rdf:type :SafetyProtocol ;
+    :hasDescription "Standard safety protocols including use of protective gear and communication procedures." .
+
+### Training Program Example
+:TrainingProgram_WildfireSuppression rdf:type :TrainingProgram ;
+    :hasDescription "Training on fire suppression techniques and equipment handling." .
+
+### Government Agency Example
+:GovernmentAgency_FireDepartment rdf:type :GovernmentAgency ;
+    :hasName "Pine Valley Fire Department" ;
+    :offersService :FireSuppression , :Evacuation , :Reconnaissance .
+
+### Volunteer Organization Example
+:VolunteerOrganization_RedCross rdf:type :VolunteerOrganization ;
+    :hasName "Red Cross" ;
+    :assists :GovernmentAgency_FireDepartment ;
+    :offersService :MedicalService , :ShelterProvision .
+
+### Historical Data Example
+:HistoricalData_PineValleyWildfires rdf:type :HistoricalData ;
+    :hasDescription "Records of wildfires in Pine Valley occurring every 5 to 7 years." .
+
+### Vegetation Type Example
+:VegetationType_DryBrushPineForest rdf:type :VegetationType ;
+    :hasDescription "Dry brush and pine forests increasing fuel loads." .
+
+### Preventive Measure Example
+:PreventiveMeasure_Firebreaks rdf:type :PreventiveMeasure ;
+    :hasDescription "Construction and maintenance of firebreaks." .
+
+### Cultural Site Example
+:CulturalSite_MaplewoodLodge rdf:type :CulturalSite ;
+    :hasName "Historic Maplewood Lodge" ;
+    :hasLocation :IncidentLocation_CulturalSite ;
+    :isInvolvedIn :WildfireIncident_PineValley .
+
+### Communication to Public Examples
+:CommunicationChannel_AudioBroadcasts rdf:type :CommunicationChannel ;
+    :hasDescription "Audio broadcasts over radio stations." .
+
+:CommunicationChannel_TextAlerts rdf:type :CommunicationChannel ;
+    :hasDescription "Text alerts sent via emergency notification systems." .
+
+### Topography Example
+:Topography_Mountainous rdf:type :Topography ;
+    :hasDescription "Mountainous terrain with steep slopes affecting fire behavior." .
+
+### Community Engagement Example
+:CommunityEngagement_PineValley rdf:type :CommunityEngagement ;
+    :hasDescription "Community training and public education on wildfire preparedness." .
+
+### Climate Change Effect Example
+:ClimateChangeEffect_IncreasedRisk rdf:type :ClimateChangeEffect ;
+    :hasDescription "Altered weather patterns leading to increased wildfire frequency and intensity." .
+
+#################################################################
+# Annotations
+#################################################################
+
+### Ontology Metadata
+<http://example.org/wildfire-sar> rdf:type owl:Ontology ;
+    rdfs:label "Wildfire Search and Rescue Ontology" ;
+    rdfs:comment "An ontology representing search and rescue operations during wildfire incidents, including weather variables, incidents, observations, missions, services, and impacts." ;
+    owl:versionInfo "1.0" .
+
