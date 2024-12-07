@@ -1,0 +1,1154 @@
+@prefix : <http://www.semanticweb.org/certh/safers> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/certh/safers> .
+
+<http://www.semanticweb.org/certh/safers> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/certh/safers#activates
+:activates rdf:type owl:ObjectProperty ;
+           rdfs:domain :Alert ,
+                       :Recommendation ;
+           rdfs:range :Communication ,
+                      :Mission .
+
+
+###  http://www.semanticweb.org/certh/safers#belongTo
+:belongTo rdf:type owl:ObjectProperty ;
+          rdfs:domain :Vehicle ;
+          rdfs:range :Department .
+
+
+###  http://www.semanticweb.org/certh/safers#containsDetection
+:containsDetection rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Dataset ;
+                   rdfs:range :Detection .
+
+
+###  http://www.semanticweb.org/certh/safers#containsMediaItem
+:containsMediaItem rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Dataset ;
+                   rdfs:range :MediaItem .
+
+
+###  http://www.semanticweb.org/certh/safers#derivedFrom
+:derivedFrom rdf:type owl:ObjectProperty ,
+                      owl:TransitiveProperty ;
+             rdfs:domain :Incident ;
+             rdfs:range :Incident .
+
+
+###  http://www.semanticweb.org/certh/safers#detectsIncident
+:detectsIncident rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Observation ;
+                 rdfs:range :Incident .
+
+
+###  http://www.semanticweb.org/certh/safers#enables
+:enables rdf:type owl:ObjectProperty ;
+         rdfs:domain :WeatherConditionParameter ;
+         rdfs:range :Mission .
+
+
+###  http://www.semanticweb.org/certh/safers#hasAffected
+:hasAffected rdf:type owl:ObjectProperty ;
+             rdfs:domain :Incident ;
+             rdfs:range :HighlyVulnerableObject .
+
+
+###  http://www.semanticweb.org/certh/safers#hasAnomaly
+:hasAnomaly rdf:type owl:ObjectProperty ;
+            rdfs:domain :Point ;
+            rdfs:range :Anomaly .
+
+
+###  http://www.semanticweb.org/certh/safers#hasClassification
+:hasClassification rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Detection ;
+                   rdfs:range :Classification .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFireImpact
+:hasFireImpact rdf:type owl:ObjectProperty ;
+               rdfs:domain :Fire ;
+               rdfs:range :Impact .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFireLocation
+:hasFireLocation rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Fire ;
+                 rdfs:range :Location ;
+                 rdfs:comment "Represents the location where a fire disaster takes place." .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFireWeatherCondition
+:hasFireWeatherCondition rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Fire ;
+                         rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasForeCastWeatherParameter
+:hasForeCastWeatherParameter rdf:type owl:ObjectProperty ;
+                             rdfs:domain :WeatherForecast ;
+                             rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasGeometry
+:hasGeometry rdf:type owl:ObjectProperty ;
+             rdfs:domain :Location ;
+             rdfs:range :Point .
+
+
+###  http://www.semanticweb.org/certh/safers#hasHumidity
+:hasHumidity rdf:type owl:ObjectProperty ;
+             rdfs:domain :Location ;
+             rdfs:range :Humidity .
+
+
+###  http://www.semanticweb.org/certh/safers#hasImpactType
+:hasImpactType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Impact ;
+               rdfs:range :ImpactType .
+
+
+###  http://www.semanticweb.org/certh/safers#hasIncidentImpact
+:hasIncidentImpact rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Incident ;
+                   rdfs:range :Impact .
+
+
+###  http://www.semanticweb.org/certh/safers#hasIncidentLocation
+:hasIncidentLocation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Incident ;
+                     rdfs:range :Location ;
+                     rdfs:comment "Represents the location where an incident occurs." .
+
+
+###  http://www.semanticweb.org/certh/safers#hasIncidentType
+:hasIncidentType rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Incident ;
+                 rdfs:range :IncidentType .
+
+
+###  http://www.semanticweb.org/certh/safers#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:domain :Alert ,
+                         :Point ,
+                         :Recommendation ,
+                         :Report ;
+             rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/certh/safers#hasLocationWeatherCondition
+:hasLocationWeatherCondition rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Location ;
+                             rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasLocationWeatherForecast
+:hasLocationWeatherForecast rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Location ;
+                            rdfs:range :WeatherForecast .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMediaLocation
+:hasMediaLocation rdf:type owl:ObjectProperty ;
+                  rdfs:domain :MediaItem ;
+                  rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMediaURI
+:hasMediaURI rdf:type owl:ObjectProperty ;
+             rdfs:domain :Report ;
+             rdfs:range :MediaURIs .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMeteorologyClimate
+:hasMeteorologyClimate rdf:type owl:ObjectProperty ;
+                       rdfs:domain :PhysicalEnvironment ;
+                       rdfs:range :MetereologyClimate .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMeterologyWeatherCondition
+:hasMeterologyWeatherCondition rdf:type owl:ObjectProperty ;
+                               rdfs:domain :MetereologyClimate ;
+                               rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMission
+:hasMission rdf:type owl:ObjectProperty ;
+            rdfs:domain :Incident ;
+            rdfs:range :Mission .
+
+
+###  http://www.semanticweb.org/certh/safers#hasPrecipitation
+:hasPrecipitation rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Location ;
+                  rdfs:range :Precipitation .
+
+
+###  http://www.semanticweb.org/certh/safers#hasRelatedIncident
+:hasRelatedIncident rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Fire ;
+                    rdfs:range :Incident .
+
+
+###  http://www.semanticweb.org/certh/safers#hasReport
+:hasReport rdf:type owl:ObjectProperty ;
+           rdfs:domain :Dataset ;
+           rdfs:range :Report .
+
+
+###  http://www.semanticweb.org/certh/safers#hasStakeholderLocation
+:hasStakeholderLocation rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Stakeholder ;
+                        rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/certh/safers#hasTemperature
+:hasTemperature rdf:type owl:ObjectProperty ;
+                rdfs:domain :Location ;
+                rdfs:range :Temperature .
+
+
+###  http://www.semanticweb.org/certh/safers#hasTopography
+:hasTopography rdf:type owl:ObjectProperty ;
+               rdfs:domain :PhysicalEnvironment ;
+               rdfs:range :Topography .
+
+
+###  http://www.semanticweb.org/certh/safers#hasTopographyWeatherCondition
+:hasTopographyWeatherCondition rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Topography ;
+                               rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasVegetation
+:hasVegetation rdf:type owl:ObjectProperty ;
+               rdfs:domain :PhysicalEnvironment ;
+               rdfs:range :Vegetation .
+
+
+###  http://www.semanticweb.org/certh/safers#hasVegetationWeatherCondition
+:hasVegetationWeatherCondition rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Vegetation ;
+                               rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasWeatherConditionParameter
+:hasWeatherConditionParameter rdf:type owl:ObjectProperty ;
+                              rdfs:domain :Point ;
+                              rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#hasWeatherForecast
+:hasWeatherForecast rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Point ;
+                    rdfs:range :WeatherForecast .
+
+
+###  http://www.semanticweb.org/certh/safers#hasWindSpeed
+:hasWindSpeed rdf:type owl:ObjectProperty ;
+              rdfs:domain :Location ;
+              rdfs:range :WindSpeed .
+
+
+###  http://www.semanticweb.org/certh/safers#hazard
+:hazard rdf:type owl:ObjectProperty ;
+        rdfs:domain :Fire ;
+        rdfs:range :PhysicalEnvironment .
+
+
+###  http://www.semanticweb.org/certh/safers#leads
+:leads rdf:type owl:ObjectProperty ;
+       rdfs:domain :Stakeholder ;
+       rdfs:range :Team .
+
+
+###  http://www.semanticweb.org/certh/safers#leadsTo
+:leadsTo rdf:type owl:ObjectProperty ,
+                  owl:SymmetricProperty ;
+         rdfs:domain :Anomaly ,
+                     :Fire ;
+         rdfs:range :Fire .
+
+
+###  http://www.semanticweb.org/certh/safers#madeBySatellite
+:madeBySatellite rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Observation ;
+                 rdfs:range :Satellite .
+
+
+###  http://www.semanticweb.org/certh/safers#madeBySensor
+:madeBySensor rdf:type owl:ObjectProperty ;
+              rdfs:domain :Observation ;
+              rdfs:range :Sensor .
+
+
+###  http://www.semanticweb.org/certh/safers#produces
+:produces rdf:type owl:ObjectProperty ;
+          rdfs:domain :Dataset ;
+          rdfs:range :Alert .
+
+
+###  http://www.semanticweb.org/certh/safers#producesIncidentData
+:producesIncidentData rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Incident ;
+                      rdfs:range :Dataset .
+
+
+###  http://www.semanticweb.org/certh/safers#producesMap
+:producesMap rdf:type owl:ObjectProperty ;
+             rdfs:domain :Dataset ;
+             rdfs:range :Map .
+
+
+###  http://www.semanticweb.org/certh/safers#producesMediaData
+:producesMediaData rdf:type owl:ObjectProperty ;
+                   rdfs:domain :MediaItem ;
+                   rdfs:range :Dataset .
+
+
+###  http://www.semanticweb.org/certh/safers#producesSatelliteData
+:producesSatelliteData rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Satellite ;
+                       rdfs:range :Dataset .
+
+
+###  http://www.semanticweb.org/certh/safers#producesSensorData
+:producesSensorData rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Sensor ;
+                    rdfs:range :Dataset .
+
+
+###  http://www.semanticweb.org/certh/safers#producesTopographyData
+:producesTopographyData rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Topography ;
+                        rdfs:range :Dataset .
+
+
+###  http://www.semanticweb.org/certh/safers#producesVegetationData
+:producesVegetationData rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Vegetation ;
+                        rdfs:range :Dataset .
+
+
+###  http://www.semanticweb.org/certh/safers#publishes
+:publishes rdf:type owl:ObjectProperty ;
+           rdfs:domain :Stakeholder ;
+           rdfs:range :MediaItem .
+
+
+###  http://www.semanticweb.org/certh/safers#refersToIncident
+:refersToIncident rdf:type owl:ObjectProperty ;
+                  rdfs:domain :MediaItem ;
+                  rdfs:range :Incident .
+
+
+###  http://www.semanticweb.org/certh/safers#relatesToIncident
+:relatesToIncident rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Mission ;
+                   rdfs:range :Incident .
+
+
+###  http://www.semanticweb.org/certh/safers#satelliteObserves
+:satelliteObserves rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Satellite ;
+                   rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#sensorObserves
+:sensorObserves rdf:type owl:ObjectProperty ;
+                rdfs:domain :Sensor ;
+                rdfs:range :WeatherConditionParameter .
+
+
+###  http://www.semanticweb.org/certh/safers#travelWith
+:travelWith rdf:type owl:ObjectProperty ;
+            rdfs:domain :Stakeholder ;
+            rdfs:range :Vehicle .
+
+
+###  http://www.semanticweb.org/certh/safers#workForDepartment
+:workForDepartment rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Stakeholder ;
+                   rdfs:range :Department .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/certh/safers#containsInformation
+:containsInformation rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Dataset ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasCategory
+:hasCategory rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Alert ,
+                         :Recommendation ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasCertainty
+:hasCertainty rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Alert ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasCommunicationEnd
+:hasCommunicationEnd rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Communication ;
+                     rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasCommunicationStart
+:hasCommunicationStart rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Communication ;
+                       rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasDatasetDateTime
+:hasDatasetDateTime rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Dataset ;
+                    rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasDatasource
+:hasDatasource rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Dataset ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasDescription
+:hasDescription rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Alert ,
+                            :Communication ,
+                            :Recommendation ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasDroughtAnomaly
+:hasDroughtAnomaly rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :DroughtAnomaly ,
+                               :Point ;
+                   rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safers#hasDuffMoistureAnomaly
+:hasDuffMoistureAnomaly rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :DuffMoistureAnomaly ,
+                                    :Point ;
+                        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFWIAnomaly
+:hasFWIAnomaly rdf:type owl:DatatypeProperty ;
+               rdfs:domain :FWIAnomaly ,
+                           :Point ;
+               rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFineFuelMoistureAnomaly
+:hasFineFuelMoistureAnomaly rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :FineFuelMoistureAnomaly ,
+                                        :Point ;
+                            rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFireEnd
+:hasFireEnd rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Fire ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Indicates the end of the fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safers#hasFireStart
+:hasFireStart rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Fire ;
+              rdfs:range xsd:dateTime ;
+              rdfs:comment "Indicates the start of the fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safers#hasIncidentPriority
+:hasIncidentPriority rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Incident ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Indicates the priority of the incident. Incidents involving humans in danger are of high priority." .
+
+
+###  http://www.semanticweb.org/certh/safers#hasIncidentSeverity
+:hasIncidentSeverity rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Incident ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasInformation
+:hasInformation rdf:type owl:DatatypeProperty ;
+                rdfs:domain :WeatherConditionParameter ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasLatitude
+:hasLatitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Location ,
+                         :Point ;
+             rdfs:range xsd:float ;
+             rdfs:comment "Geographic latitude coordinates of a location." .
+
+
+###  http://www.semanticweb.org/certh/safers#hasLocationID
+:hasLocationID rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Point ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/certh/safers#hasLongitude
+:hasLongitude rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Location ,
+                          :Point ;
+              rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMediaDateTime
+:hasMediaDateTime rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :MediaItem ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMediaSource
+:hasMediaSource rdf:type owl:DatatypeProperty ;
+                rdfs:domain :MediaItem ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMissionEnd
+:hasMissionEnd rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Mission ;
+               rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMissionPriority
+:hasMissionPriority rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Mission ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMissionStart
+:hasMissionStart rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Mission ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasMissionStatus
+:hasMissionStatus rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Mission ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasObservationDateTime
+:hasObservationDateTime rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Observation ;
+                        rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasObservationSource
+:hasObservationSource rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Observation ;
+                      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasRegion
+:hasRegion rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Point ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasScope
+:hasScope rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Alert ,
+                      :Recommendation ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasSeverity
+:hasSeverity rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Alert ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasSource
+:hasSource rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Alert ,
+                       :Recommendation ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasStakeholderActivity
+:hasStakeholderActivity rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Stakeholder ;
+                        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasStakeholderStatus
+:hasStakeholderStatus rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Stakeholder ;
+                      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasStatus
+:hasStatus rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Alert ,
+                       :Recommendation ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasTimestamp
+:hasTimestamp rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Alert ,
+                          :Recommendation ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safers#hasUrgency
+:hasUrgency rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Alert ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :DroughtAnomaly ,
+                      :DuffMoistureAnomaly ,
+                      :FWI ,
+                      :FWIAnomaly ,
+                      :FineFuelMoistureAnomaly ,
+                      :Humidity ,
+                      :Precipitation ,
+                      :Temperature ,
+                      :WeatherConditionParameter ,
+                      :WindSpeed ;
+          rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safers#hasVehicleStatus
+:hasVehicleStatus rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Vehicle ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasVulnerableObjectStatus
+:hasVulnerableObjectStatus rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :HighlyVulnerableObject ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safers#hasWeatherConditionTimestamp
+:hasWeatherConditionTimestamp rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :WeatherConditionParameter ;
+                              rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/certh/safers#AirQuality
+:AirQuality rdf:type owl:Class ;
+            rdfs:subClassOf :Observation .
+
+
+###  http://www.semanticweb.org/certh/safers#Aircraft
+:Aircraft rdf:type owl:Class ;
+          rdfs:subClassOf :Vehicle ;
+          rdfs:comment "Represents any type of aircraft." .
+
+
+###  http://www.semanticweb.org/certh/safers#Alert
+:Alert rdf:type owl:Class ;
+       rdfs:comment "Represents alerts" .
+
+
+###  http://www.semanticweb.org/certh/safers#Animal
+:Animal rdf:type owl:Class ;
+        rdfs:subClassOf :LivingBeing ;
+        rdfs:comment "Represents animals in danger during a fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safers#Anomaly
+:Anomaly rdf:type owl:Class ;
+         rdfs:comment "Represents Anomalies" .
+
+
+###  http://www.semanticweb.org/certh/safers#Asset
+:Asset rdf:type owl:Class ;
+       rdfs:subClassOf :HighlyVulnerableObject ;
+       rdfs:comment "Any non-living item of interest." .
+
+
+###  http://www.semanticweb.org/certh/safers#Audio
+:Audio rdf:type owl:Class ;
+       rdfs:subClassOf :MediaItem .
+
+
+###  http://www.semanticweb.org/certh/safers#Bulldozer
+:Bulldozer rdf:type owl:Class ;
+           rdfs:subClassOf :Vehicle .
+
+
+###  http://www.semanticweb.org/certh/safers#Car
+:Car rdf:type owl:Class ;
+     rdfs:subClassOf :Vehicle ;
+     rdfs:comment "Represents any type of car." .
+
+
+###  http://www.semanticweb.org/certh/safers#Citizen
+:Citizen rdf:type owl:Class ;
+         rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#CivilProtection
+:CivilProtection rdf:type owl:Class ;
+                 rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#Classification
+:Classification rdf:type owl:Class ;
+                rdfs:comment "Respresents Classification" .
+
+
+###  http://www.semanticweb.org/certh/safers#Communication
+:Communication rdf:type owl:Class ;
+               rdfs:comment "Represents Communication" .
+
+
+###  http://www.semanticweb.org/certh/safers#Dataset
+:Dataset rdf:type owl:Class ;
+         rdfs:comment "Represents all relevant information about the media item, the observation and sensor items, as well information from physical environment regarding the topography and the vegetation" .
+
+
+###  http://www.semanticweb.org/certh/safers#Department
+:Department rdf:type owl:Class ;
+            rdfs:comment "Represents the department where stakeholder works." .
+
+
+###  http://www.semanticweb.org/certh/safers#Detection
+:Detection rdf:type owl:Class ;
+           rdfs:comment "Represents detections in a dataset. Example A person trapped in the fire." .
+
+
+###  http://www.semanticweb.org/certh/safers#DropWaterMission
+:DropWaterMission rdf:type owl:Class ;
+                  rdfs:subClassOf :Mission ;
+                  rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for dropping water." .
+
+
+###  http://www.semanticweb.org/certh/safers#DroughtAnomaly
+:DroughtAnomaly rdf:type owl:Class ;
+                rdfs:subClassOf :Anomaly ;
+                rdfs:comment "Respresents Drought Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safers#DuffMoistureAnomaly
+:DuffMoistureAnomaly rdf:type owl:Class ;
+                     rdfs:subClassOf :Anomaly ;
+                     rdfs:comment "Respresents Duff Moisture Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safers#EvacuationMission
+:EvacuationMission rdf:type owl:Class ;
+                   rdfs:subClassOf :Mission ;
+                   rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for evacuation." .
+
+
+###  http://www.semanticweb.org/certh/safers#FWI
+:FWI rdf:type owl:Class ;
+     rdfs:subClassOf :WeatherConditionParameter ;
+     rdfs:comment "Represents FWI variable which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#FWIAnomaly
+:FWIAnomaly rdf:type owl:Class ;
+            rdfs:subClassOf :Anomaly ;
+            rdfs:comment "Respresents FWI Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safers#FineFuelMoistureAnomaly
+:FineFuelMoistureAnomaly rdf:type owl:Class ;
+                         rdfs:subClassOf :Anomaly ;
+                         rdfs:comment "Respresents Fine Fuel Moisture Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safers#Fire
+:Fire rdf:type owl:Class ;
+      rdfs:comment "Fire is an uncontrolled burning that has the potential to cause physical damage on human life, health, property or ecology.  this class represents the various types of fires, e.g. forest fire, land fire or urban fire, etc." .
+
+
+###  http://www.semanticweb.org/certh/safers#FirebreakMission
+:FirebreakMission rdf:type owl:Class ;
+                  rdfs:subClassOf :Mission ;
+                  rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for using or making an obstacle to the spread of fire, such as a strip of open space in a forest." .
+
+
+###  http://www.semanticweb.org/certh/safers#Firefighter
+:Firefighter rdf:type owl:Class ;
+             rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#ForestEngine
+:ForestEngine rdf:type owl:Class ;
+              rdfs:subClassOf :Vehicle .
+
+
+###  http://www.semanticweb.org/certh/safers#ForestFire
+:ForestFire rdf:type owl:Class ;
+            rdfs:subClassOf :Fire ;
+            rdfs:comment "Respresents Forest Fire" .
+
+
+###  http://www.semanticweb.org/certh/safers#FuelBreakMission
+:FuelBreakMission rdf:type owl:Class ;
+                  rdfs:subClassOf :Mission ;
+                  rdfs:comment "Represent a fuel break mission." .
+
+
+###  http://www.semanticweb.org/certh/safers#GroundSituation
+:GroundSituation rdf:type owl:Class ;
+                 rdfs:subClassOf :Observation .
+
+
+###  http://www.semanticweb.org/certh/safers#HighlyVulnerableObject
+:HighlyVulnerableObject rdf:type owl:Class ;
+                        rdfs:comment """High possibility of loss resulting from the occurrence of the phenomenon.
+Any living being or object that needs to be protected from hazards.""" .
+
+
+###  http://www.semanticweb.org/certh/safers#Human
+:Human rdf:type owl:Class ;
+       rdfs:subClassOf :LivingBeing ;
+       rdfs:comment "Represents human beings in danger." .
+
+
+###  http://www.semanticweb.org/certh/safers#Humidity
+:Humidity rdf:type owl:Class ;
+          rdfs:subClassOf :WeatherConditionParameter ;
+          rdfs:comment "Represents humidity which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#Image
+:Image rdf:type owl:Class ;
+       rdfs:subClassOf :MediaItem .
+
+
+###  http://www.semanticweb.org/certh/safers#Impact
+:Impact rdf:type owl:Class ;
+        rdfs:comment "Represents the impact of wildfire disasters and incidents." .
+
+
+###  http://www.semanticweb.org/certh/safers#ImpactType
+:ImpactType rdf:type owl:Class ;
+            rdfs:comment "Represents the various types of impacts.e.g. injuries, damage to properties, fire propagation etc." .
+
+
+###  http://www.semanticweb.org/certh/safers#Incident
+:Incident rdf:type owl:Class ;
+          rdfs:comment "Represents the various incidents taking place during a wildfire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safers#IncidentType
+:IncidentType rdf:type owl:Class ;
+              rdfs:comment "Represents the various types of incidents, like e.g. burning forest, blocked streets, etc." .
+
+
+###  http://www.semanticweb.org/certh/safers#Infrastructure
+:Infrastructure rdf:type owl:Class ;
+                rdfs:subClassOf :Asset ;
+                rdfs:comment "Represents critical infrastructure that is in danger during a fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safers#LandFire
+:LandFire rdf:type owl:Class ;
+          rdfs:subClassOf :Fire ;
+          rdfs:comment "Respresents Land Fire" .
+
+
+###  http://www.semanticweb.org/certh/safers#LivingBeing
+:LivingBeing rdf:type owl:Class ;
+             rdfs:subClassOf :HighlyVulnerableObject ;
+             rdfs:comment "Any living being that is in danger during a natural disaster." .
+
+
+###  http://www.semanticweb.org/certh/safers#Location
+:Location rdf:type owl:Class ;
+          rdfs:comment "Represents a location (point or area), indicated by latitude and longitude" .
+
+
+###  http://www.semanticweb.org/certh/safers#Map
+:Map rdf:type owl:Class ;
+     rdfs:comment "Represents early warning and risk maps" .
+
+
+###  http://www.semanticweb.org/certh/safers#MediaItem
+:MediaItem rdf:type owl:Class ;
+           rdfs:comment "Represents 4 domain specific media items which in SAFERS ontology are: text, images, videos and audio, all of them submitted from stakeholders during the occurrence of the crisis in social media posts or chatbots." .
+
+
+###  http://www.semanticweb.org/certh/safers#MediaURIs
+:MediaURIs rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/certh/safers#MedicalService
+:MedicalService rdf:type owl:Class ;
+                rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#MetereologyClimate
+:MetereologyClimate rdf:type owl:Class ;
+                    rdfs:comment "Represents meteorology climate of the burned area" .
+
+
+###  http://www.semanticweb.org/certh/safers#Mission
+:Mission rdf:type owl:Class ;
+         rdfs:comment "Represents a mission assigned to a rescue unit during a crisis." .
+
+
+###  http://www.semanticweb.org/certh/safers#Observation
+:Observation rdf:type owl:Class ;
+             rdfs:comment "Represents earth observation data." .
+
+
+###  http://www.semanticweb.org/certh/safers#PersonAbleToProvideSupport
+:PersonAbleToProvideSupport rdf:type owl:Class ;
+                            rdfs:subClassOf :Public .
+
+
+###  http://www.semanticweb.org/certh/safers#PersonUnableToProvideSupport
+:PersonUnableToProvideSupport rdf:type owl:Class ;
+                              rdfs:subClassOf :Public .
+
+
+###  http://www.semanticweb.org/certh/safers#PhysicalEnvironment
+:PhysicalEnvironment rdf:type owl:Class ;
+                     rdfs:comment "Represents the burned area from the occurred wildfire" .
+
+
+###  http://www.semanticweb.org/certh/safers#Point
+:Point rdf:type owl:Class ;
+       rdfs:comment "Respresents Point" .
+
+
+###  http://www.semanticweb.org/certh/safers#PolicyMakers
+:PolicyMakers rdf:type owl:Class ;
+              rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#Precipitation
+:Precipitation rdf:type owl:Class ;
+               rdfs:subClassOf :WeatherConditionParameter ;
+               rdfs:comment "Represents precipitation which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#PrescribedBurning
+:PrescribedBurning rdf:type owl:Class ;
+                   rdfs:subClassOf :Mission ;
+                   rdfs:comment "Respresents Prescribed Burning" .
+
+
+###  http://www.semanticweb.org/certh/safers#Property
+:Property rdf:type owl:Class ;
+          rdfs:subClassOf :Asset ;
+          rdfs:comment "Represents any type of private property." .
+
+
+###  http://www.semanticweb.org/certh/safers#ProvidingShelterMission
+:ProvidingShelterMission rdf:type owl:Class ;
+                         rdfs:subClassOf :Mission ;
+                         rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for providing shelter." .
+
+
+###  http://www.semanticweb.org/certh/safers#Public
+:Public rdf:type owl:Class ;
+        rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#Recommendation
+:Recommendation rdf:type owl:Class ;
+                rdfs:comment "Represents Recommendation" .
+
+
+###  http://www.semanticweb.org/certh/safers#ReconnaissanceMission
+:ReconnaissanceMission rdf:type owl:Class ;
+                       rdfs:subClassOf :Mission ;
+                       rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for reconnaissance survey." .
+
+
+###  http://www.semanticweb.org/certh/safers#Report
+:Report rdf:type owl:Class ;
+        rdfs:comment "Respresents Report" .
+
+
+###  http://www.semanticweb.org/certh/safers#Satellite
+:Satellite rdf:type owl:Class ;
+           rdfs:comment "Represents the observations that made by satellite" .
+
+
+###  http://www.semanticweb.org/certh/safers#Sensor
+:Sensor rdf:type owl:Class ;
+        rdfs:comment "Represents the observations that made by sensors" .
+
+
+###  http://www.semanticweb.org/certh/safers#Stakeholder
+:Stakeholder rdf:type owl:Class ;
+             rdfs:comment "Represents a Data Management System User." .
+
+
+###  http://www.semanticweb.org/certh/safers#Team
+:Team rdf:type owl:Class ;
+      rdfs:comment "Represents a team. Stakeholders belong or lead a team." .
+
+
+###  http://www.semanticweb.org/certh/safers#Temperature
+:Temperature rdf:type owl:Class ;
+             rdfs:subClassOf :WeatherConditionParameter ;
+             rdfs:comment "Represents Temperature which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#Text
+:Text rdf:type owl:Class ;
+      rdfs:subClassOf :MediaItem .
+
+
+###  http://www.semanticweb.org/certh/safers#Topography
+:Topography rdf:type owl:Class ;
+            rdfs:comment "Represents topography of  the burned area" .
+
+
+###  http://www.semanticweb.org/certh/safers#TrainedVolunteer
+:TrainedVolunteer rdf:type owl:Class ;
+                  rdfs:subClassOf :Stakeholder .
+
+
+###  http://www.semanticweb.org/certh/safers#TrainingMission
+:TrainingMission rdf:type owl:Class ;
+                 rdfs:subClassOf :Mission ;
+                 rdfs:comment "Represents a training mission" .
+
+
+###  http://www.semanticweb.org/certh/safers#UrbanFire
+:UrbanFire rdf:type owl:Class ;
+           rdfs:subClassOf :Fire ;
+           rdfs:comment "Respresents Urban Fire" .
+
+
+###  http://www.semanticweb.org/certh/safers#Vegetation
+:Vegetation rdf:type owl:Class ;
+            rdfs:comment "Represents vegetation of the burned area" .
+
+
+###  http://www.semanticweb.org/certh/safers#Vehicle
+:Vehicle rdf:type owl:Class ;
+         rdfs:comment "Represents any type of vehicle." .
+
+
+###  http://www.semanticweb.org/certh/safers#Video
+:Video rdf:type owl:Class ;
+       rdfs:subClassOf :MediaItem .
+
+
+###  http://www.semanticweb.org/certh/safers#WaterQuality
+:WaterQuality rdf:type owl:Class ;
+              rdfs:subClassOf :Observation .
+
+
+###  http://www.semanticweb.org/certh/safers#WeatherConditionParameter
+:WeatherConditionParameter rdf:type owl:Class ;
+                           rdfs:comment "Represents specific weather condition parameters which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#WeatherForecast
+:WeatherForecast rdf:type owl:Class ;
+                 rdfs:comment "Represents weather forecast which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#WindSpeed
+:WindSpeed rdf:type owl:Class ;
+           rdfs:subClassOf :WeatherConditionParameter ;
+           rdfs:comment "Represents wind speed which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safers#ZoneCleaningMission
+:ZoneCleaningMission rdf:type owl:Class ;
+                     rdfs:subClassOf :Mission ;
+                     rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for zone cleaning." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/certh/safers#fire1
+:fire1 rdf:type owl:NamedIndividual ,
+                :Fire ;
+       :hasFireEnd "2007-07-04T10:53:00"^^xsd:dateTime ;
+       :hasFireStart "2007-07-04T08:15:00"^^xsd:dateTime ;
+       :hasLatitude "34.74"^^xsd:float ;
+       :hasLongitude "-119.75"^^xsd:float .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+owl:topObjectProperty rdfs:comment "relatesToMission" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Alert
+                :Classification
+                :Dataset
+                :Department
+                :Detection
+                :Fire
+                :HighlyVulnerableObject
+                :Impact
+                :ImpactType
+                :Incident
+                :IncidentType
+                :Location
+                :Map
+                :MediaItem
+                :MediaURIs
+                :MetereologyClimate
+                :Mission
+                :Observation
+                :PhysicalEnvironment
+                :Point
+                :Report
+                :Satellite
+                :Sensor
+                :Stakeholder
+                :Team
+                :Topography
+                :Vegetation
+                :Vehicle
+                :WeatherConditionParameter
+                :WeatherForecast
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
